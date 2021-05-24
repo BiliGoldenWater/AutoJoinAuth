@@ -1,0 +1,7 @@
+# 默认忽略的文件
+/AutoJoinAuth.iws
+
+# 项目排除路径
+/.gradle/
+/build/
+/build/classes/java/main/
