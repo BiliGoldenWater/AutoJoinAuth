@@ -2,6 +2,7 @@ package indi.goldenwater.listeners;
 
 import indi.goldenwater.AutoJoinAuth;
 import net.mamoe.mirai.contact.Group;
+import net.mamoe.mirai.contact.MemberPermission;
 import net.mamoe.mirai.contact.NormalMember;
 import net.mamoe.mirai.event.GlobalEventChannel;
 import net.mamoe.mirai.event.Listener;
@@ -23,6 +24,11 @@ public class OnMemberJoinRequestEvent {
                     if (fromGroup == null) return;
 
                     if (!(fromGroup.getId() == Long.parseLong(prop.getProperty("target_group")))) return;
+
+                    if (fromGroup.getBotPermission().getLevel() == MemberPermission.MEMBER.getLevel()) {
+                        AutoJoinAuth.INSTANCE.getLogger().warning("No Permission Error.");
+                        return;
+                    }
 
                     Map<Long, List<Object>> passedUsers = AutoJoinAuth.INSTANCE.getPassedUsers();
                     List<Object> passData = passedUsers.get(event.getFromId());

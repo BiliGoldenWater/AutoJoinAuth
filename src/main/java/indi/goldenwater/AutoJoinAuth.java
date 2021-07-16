@@ -23,7 +23,7 @@ public final class AutoJoinAuth extends JavaPlugin {
     private Bot botInstance;
 
     private AutoJoinAuth() {
-        super(new JvmPluginDescriptionBuilder("indi.goldenwater.AutoJoinAuth", "1.0.0")
+        super(new JvmPluginDescriptionBuilder("indi.goldenwater.AutoJoinAuth", "1.0.1")
                 .name("AutoJoinAuth")
                 .author("Golden_Water")
                 .build());
